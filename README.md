@@ -1,5 +1,7 @@
 # COCO-2017
 
+![Logo](img/COCO.png)
+
 Script de pré-processamento do dataset COCO 2017 para formato YOLO, com balanceamento automático de classes.
 
 ## Configuração do Ambiente Local
@@ -53,12 +55,13 @@ O balanceamento automático garante ~3000 imagens por classe, criando um dataset
 
 Assim que terminar de baixar o arquivo COCO de 18 GB:
 
-1. **Célula 0**: Carrega bibliotecas globais
-2. **Célula 1**: Configura caminhos, classes alvo e metas de balanceamento
-3. **Célula 2**: Define funções de transformação (COCO → YOLO)
-4. **Célula 3**: Lê JSON e faz balanceamento na RAM (sem copiar imagens ainda)
-5. **Célula 4**: Copia imagens selecionadas e gera arquivos `.txt` YOLO (demora!)
-6. **Célula 5**: Gera relatório tabular para sua monografia
-7. **Célula 6**: Compacta dataset em ZIP, pronto para upload
+1. **Célula 0**: Imports globais — carrega bibliotecas e checa ambiente (GPU opcional)
+2. **Célula 1**: Configurações iniciais — caminhos, metas de balanceamento e mapeamentos COCO→YOLO
+3. **Célula 2**: Funções de suporte — criação de diretórios e conversão COCO→YOLO
+4. **Célula 3**: Mineração e balanceamento lógico — lê `instances_train2017.json` e seleciona imagens em RAM (sem copiar arquivos)
+5. **Célula 4**: Extração física — copia imagens selecionadas e gera arquivos `.txt` no formato YOLO
+6. **Célula 5**: Relatório tabular — imprime estatísticas por classe para o TCC
+7. **Célula 6**: Split (train/val/test) e geração do `data.yaml` — reorganiza pastas `images/` e `labels/` e cria `data.yaml` no padrão YOLOv8
+8. **Célula 7**: Compactação do dataset — cria o arquivo ZIP pronto para upload
 
 **Resultado**: Dataset YOLO balanceado e polido, pronto para treinar YOLO, Faster R-CNN ou SSD! 🚀
