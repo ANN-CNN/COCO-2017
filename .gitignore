@@ -5,6 +5,7 @@ coco_2017/
 coco_dataset/
 Yolo_dataset/
 FasterRCNN_dataset/
+SSD_dataset/
 venv/
 
 # ==========================================
