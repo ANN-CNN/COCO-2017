@@ -10,7 +10,7 @@ INÍCIO
         Arquivo de anotações do COCO.
         Classes de interesse.
         Quantidade máxima de imagens por classe.
-        Mapeamento das classes para o formato YOLO.
+        Mapeamento das classes para o formato alvo.
 
 3. Preparar estrutura do dataset
     Criar diretórios de saída.
