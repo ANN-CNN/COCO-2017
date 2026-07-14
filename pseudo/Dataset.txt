@@ -25,11 +25,12 @@ INÍCIO
     Descartar anotações inválidas.
     Balancear a quantidade de imagens entre as classes.
 
-6. Converter anotações
+6. Processar e converter anotações
     Para cada imagem selecionada:
-        Copiar a imagem para o novo dataset.
-        Converter as coordenadas do formato COCO para o formato YOLO.
-        Gerar o arquivo de rótulos (.txt).
+        Copiar a imagem para o novo diretório de destino.
+        Adaptar anotações:
+            Se formato YOLO: Converter coordenadas COCO para coordenadas relativas normalizadas [x_{centro}, y_{centro}, w, h] e gerar arquivo .txt.
+            Se formato Pascal VOC (SSD/Faster R-CNN): Converter coordenadas COCO para coordenadas absolutas [x_{min}, y_{min}, x_{max}, y_{max}] e gerar arquivo .xml. 
 
 7. Gerar relatório
     Calcular:
@@ -45,10 +46,9 @@ INÍCIO
         Teste (10%).
 
 9. Gerar arquivo de configuração
-    Criar o arquivo data.yaml contendo:
-        Caminhos do dataset.
-        Classes utilizadas.
-        Nomes das classes.
+    Gerar arquivos de configuração:
+        Se formato YOLO: Gerar o arquivo data.yaml contendo os caminhos do dataset, a quantidade de classes e os nomes das classes.
+        Se formato Pascal VOC (SSD/Faster R-CNN): Gerar o arquivo label_map.pbtxt, contendo o mapeamento de IDs e nomes das classes no formato exigido pela API de detecção do TensorFlow.
 
 10. Compactar o dataset
     Gerar um arquivo ZIP contendo toda a estrutura do dataset.
